@@ -15,7 +15,7 @@
     "dev": "bun run src/index.ts",
     "lint": "oxlint",
     "typecheck": "bun turbo typecheck",
-    "postinstall": "bun run --cwd packages/core fix-node-pty",
+    "postinstall": "find packages/core/node_modules/node-pty/prebuilds -name 'spawn-helper' -exec chmod +x {} \\; 2>/dev/null || true",
     "test": "echo 'do not run tests from root' && exit 1"
   },
   "workspaces": {
@@ -72,7 +72,12 @@
       "shiki": "4.2.0",
       "solid-list": "0.3.0",
       "solid-js": "1.9.10",
-      "@lydell/node-pty": "1.2.0-beta.12"
+      "@lydell/node-pty": "1.2.0-beta.12",
+      "@solidjs/meta": "0.29.4",
+      "@tailwindcss/vite": "4.1.11",
+      "tailwindcss": "4.1.11",
+      "vite": "7.1.4",
+      "vite-plugin-solid": "2.11.10"
     }
   },
   "dependencies": {
