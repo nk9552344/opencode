@@ -1,3 +1,5 @@
+preload = ["@opentui/solid/preload"]
+
 [install]
 exact = true
 # Only install newly resolved package versions published at least 3 days ago.
