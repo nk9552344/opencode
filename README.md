@@ -116,6 +116,44 @@ Learn more about [agents](https://opencode.ai/docs/agents).
 
 For more info on how to configure OpenCode, [**head over to our docs**](https://opencode.ai/docs).
 
+### Developer Documentation
+
+In-depth architecture documentation lives in the [`docs/`](./docs) directory:
+
+| Chapter | Topic |
+| ------- | ----- |
+| [00 – Overview](./docs/00-overview.md) | Architecture, repo structure, Effect framework, runtime topology |
+| [01 – Getting Started](./docs/01-getting-started.md) | Setup, running locally, dev workflow |
+| [02 – CLI Layer](./docs/02-cli-layer.md) | Entry point, commands, Daemon service |
+| [03 – Core: Session](./docs/03-core-session.md) | SessionRunner, event sourcing, LLM loop |
+| [04 – Core: Tools](./docs/04-core-tools.md) | ToolRegistry, built-in tools, agent subtools |
+| [05 – Core: Agents, Config & Plugins](./docs/05-core-agents-config-plugins.md) | AgentV2, Config, PluginV2 |
+| [06 – LLM Layer](./docs/06-llm-layer.md) | Provider abstraction, routes, auth |
+| [07 – Server API](./docs/07-server-api.md) | HTTP API, SSE streaming, OpenAPI spec |
+| [08 – TUI](./docs/08-tui.md) | Terminal UI architecture (SolidJS + opentui) |
+| [09 – Schema & Protocol](./docs/09-schema-protocol.md) | Shared domain schemas, API contract |
+| [10 – Database](./docs/10-database.md) | SQLite schema, Drizzle ORM, event log |
+| [11 – Build System](./docs/11-build-system.md) | Cross-platform binary builds, model catalog generation |
+
+### Building from Source
+
+```bash
+# Install dependencies
+bun install
+
+# Generate model catalog snapshot (fetches from models.dev at build time)
+bun run script/generate.ts
+
+# Build standalone binaries for all platforms
+bun run build   # alias for: bun run script/build.ts
+
+# Run in dev mode (no binary, runs from source)
+bun run dev
+
+# Typecheck all packages
+bun run typecheck
+```
+
 ### Contributing
 
 If you're interested in contributing to OpenCode, please read our [contributing docs](./CONTRIBUTING.md) before submitting a pull request.
